@@ -1,94 +1,94 @@
 # AI Prompt Consultant 🤖✨
 
-**AI Prompt Consultant** è un potente strumento CLI (Command Line Interface) scritto in Python che agisce come un **Senior Prompt Engineer**. Utilizza l'intelligenza artificiale di Google Gemini per aiutarti a raffinare, strutturare e ottimizzare i tuoi prompt tramite un processo di intervista interattiva.
+**AI Prompt Consultant** is a powerful CLI (Command Line Interface) tool written in Python that acts as a **Senior Prompt Engineer**. It leverages Google Gemini's AI to help you refine, structure, and optimize your prompts through an interactive interview process.
 
-## 🚀 Funzionalità Principali
+## 🚀 Key Features
 
-- **Prompt Engineering Assistito**: Un'AI esperta che ti pone domande mirate per migliorare la tua idea iniziale.
-- **Multilingua**: Supporto completo per **Italiano** (default) e **Inglese**. L'interfaccia e l'AI si adattano alla lingua scelta.
-- **Zero-Config Setup**: Niente file `.env` complessi. Al primo avvio, il tool ti guida nella configurazione di API Key e preferenze.
-- **Persistenza**: Salva automaticamente la tua API Key, il modello preferito e la lingua in `config.json`.
-- **Supporto Modelli Next-Gen**: Compatibile con gli ultimi modelli Google (`gemini-2.5-flash`, `gemini-2.5-pro` e altri).
-- **Slash Commands**: Comandi rapidi per modificare le impostazioni al volo durante la conversazione.
+- **Assisted Prompt Engineering**: An expert AI asks targeted questions to improve your initial idea.
+- **Multilingual**: Full support for **English** and **Italian** (defaults to system preference or prompts on first run). The interface and AI adapt to the chosen language.
+- **Zero-Config Setup**: No complex `.env` files. On first run, the tool guides you through configuring your API Key and preferences.
+- **Persistence**: Automatically saves your API Key, preferred model, and language in `config.json`.
+- **Next-Gen Model Support**: Compatible with the latest Google models (`gemini-2.5-flash`, `gemini-2.5-pro`, and others).
+- **Slash Commands**: Quick commands to change settings on the fly during the conversation.
 
-## 🛠️ Installazione
+## 🛠️ Installation
 
-### Prerequisiti
+### Prerequisites
 
-- Python 3.10 o superiore.
-- Una API Key di Google AI Studio (ottenibile [qui](https://aistudio.google.com/)).
+- Python 3.10 or higher.
+- A Google AI Studio API Key (get it [here](https://aistudio.google.com/)).
 
 ### Setup
 
-1.  Clona la repository (o scarica i file).
-2.  Installa le dipendenze:
+1.  Clone the repository (or download the files).
+2.  Install dependencies:
     ```bash
     pip3 install -r requirements.txt
     ```
 
-## 💻 Utilizzo
+## 💻 Usage
 
-Esegui il programma dal terminale:
+Run the program from your terminal:
 
 ```bash
 python3 main.py
 ```
 
-### Primo Avvio
+### First Run
 
-Se è la prima volta che lo esegui, il tool ti chiederà:
+If it's your first time running it, the tool will ask for:
 
-1.  La lingua preferita (IT/EN).
-2.  La tua Google Gemini API Key.
-3.  Il modello da utilizzare (es. `gemini-2.5-flash`).
+1.  Your preferred language (IT/EN).
+2.  Your Google Gemini API Key.
+3.  The model to use (e.g., `gemini-2.5-flash`).
 
-Queste informazioni verranno salvate per i futuri utilizzi.
+This information will be saved for future use.
 
-### Flusso di Lavoro
+### Workflow
 
-1.  **Idea Iniziale**: Descrivi brevemente cosa vuoi ottenere (es. "Voglio un prompt per scrivere un articolo SEO").
-2.  **Intervista**: L'AI ti farà 1-3 domande alla volta per chiarire il contesto, il target, il tono e i vincoli.
-3.  **Generazione**: Una volta raccolti abbastanza dettagli, l'AI genererà un **Prompt Ottimizzato** pronto per essere copiato e incollato.
+1.  **Initial Idea**: Briefly describe what you want to achieve (e.g., "I want a prompt to write an SEO article").
+2.  **Interview**: The AI will ask you 1-3 questions at a time to clarify context, target audience, tone, and constraints.
+3.  **Generation**: Once enough details are gathered, the AI will generate an **Optimized Prompt** ready for you to copy and paste.
 
-## ⚡ Comandi Disponibili (Slash Commands)
+## ⚡ Available Commands (Slash Commands)
 
-Durante la conversazione, puoi usare i seguenti comandi speciali:
+During the conversation, you can use the following special commands:
 
-| Comando         | Descrizione                                                                                    |
-| :-------------- | :--------------------------------------------------------------------------------------------- |
-| `/set-model`    | Cambia il modello AI utilizzato (es. da Flash a Pro).                                          |
-| `/set-apikey`   | Aggiorna la tua API Key salvata.                                                               |
-| `/set-language` | Cambia la lingua dell'interfaccia e dell'AI (IT 🇮🇹 / EN 🇬🇧).                                   |
-| `/reset`        | Cancella **tutte** le impostazioni salvate e chiude il programma. Utile per ripartire da zero. |
-| `/exit`         | Termina la sessione e chiude il programma.                                                     |
+| Command         | Description                                                               |
+| :-------------- | :------------------------------------------------------------------------ |
+| `/set-model`    | Change the AI model used (e.g., from Flash to Pro).                       |
+| `/set-apikey`   | Update your saved API Key.                                                |
+| `/set-language` | Change the interface and AI language (IT 🇮🇹 / EN 🇬🇧).                     |
+| `/reset`        | Clear **all** saved settings and exit the program. Useful to start fresh. |
+| `/exit`         | End the session and close the program.                                    |
 
-## ⚙️ Configurazione Avanzata
+## ⚙️ Advanced Configuration
 
-Tutte le preferenze sono salvate nel file local `config.json`.
-Non è necessario modificarlo manualmente, ma ecco come appare:
+All preferences are saved in the local `config.json` file.
+You don't need to edit it manually, but here is how it looks:
 
 ```json
 {
 	"model": "gemini-2.5-flash",
 	"api_key": "AIzaSy...",
-	"language": "it"
+	"language": "en"
 }
 ```
 
-Per lanciare il programma ignorando le preferenze salvate (senza cancellarle):
+To launch the program ignoring saved preferences (without deleting them):
 
 ```bash
 python3 main.py --reset
 ```
 
-_(Nota: Il flag `--reset` agisce solo per la sessione corrente. Per cancellare definitivamente, usa il comando `/reset` dentro l'app)._
+_(Note: The `--reset` flag only affects the current session. To permanently delete settings, use the `/reset` command inside the app)._
 
-## 🐞 Risoluzione Problemi
+## 🐞 Troubleshooting
 
-- **Errore 404 (Modello non trovato)**: Assicurati di usare un nome modello valido (es. `gemini-1.5-flash`, `gemini-2.5-flash`). Usa `/set-model` per cambiarlo.
-- **Comando non riconosciuto**: Assicurati di scrivere il comando correttamente (es. `/exit` e non `exit` o `/esci`).
-- **Problemi API Key**: Se la chiave è scaduta, usa `/set-apikey` per inserirne una nuova.
+- **404 Error (Model not found)**: Ensure you are using a valid model name (e.g., `gemini-1.5-flash`, `gemini-2.5-flash`). Use `/set-model` to change it.
+- **Unknown Command**: Make sure to type the command correctly (e.g., `/exit` and not `exit` or `/quit`).
+- **API Key Issues**: If your key has expired, use `/set-apikey` to enter a new one.
 
 ---
 
-_Creato con ❤️ e 🤖_
+_Created with ❤️ and 🤖_
