@@ -1,3 +1,10 @@
+"""
+This script provides a command-line interface (CLI) for an AI Prompt Consultant.
+
+It allows users to interact with a Gemini-powered AI model to refine their prompts,
+manage API keys, select models, set language preferences, and reset configurations.
+The CLI is built using `typer` and `rich` for a rich interactive experience.
+"""
 import typer
 from rich.console import Console
 from rich.prompt import Prompt
@@ -21,7 +28,16 @@ def start(
     reset: bool = typer.Option(False, help="Reset saved model preference.")
 ):
     """
-    Start a consultation session to improve your prompt.
+    Starts a consultation session with the AI Prompt Consultant.
+
+    Allows the user to interact with the AI to refine prompts.
+    Handles initial setup like language selection, API key management,
+    and generative model selection. Supports various commands for session control.
+
+    Args:
+        model: The Gemini model to use for the session. Overrides saved preference.
+        debug: If True, enables debug mode for the consultant.
+        reset: If True, resets saved model preference, API key, and language.
     """
     config_manager = ConfigManager()
     
@@ -204,4 +220,9 @@ def start(
         console.print(f"{t.get('consultant_label')}{response}")
 
 if __name__ == "__main__":
+    """
+    Entry point for the Typer CLI application.
+
+    Initializes and runs the main application, enabling command-line interactions.
+    """
     app()
